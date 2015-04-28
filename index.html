@@ -23,20 +23,24 @@
 	Hello, World!
       </div>
       <div class="row">
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
-	<div class="col-md-1">.col-md-1</div>
+	<div class="col-md-6">foobar</div>
+	<div class="col-md-6">
+	  <div id="editor-pane"></div>
+	</div>
       </div>
     </div>
+
+    <script src="lib/codemirror.js"></script>
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <script src="mode/javascript/javascript.js"></script>
+
+
+    <script>
+      var myCodeMirror = CodeMirror(document.getElementById("editor-pane"), {
+      value: "function myScript(){return 120;}\n",
+      mode:  "javascript"
+      });
+    </script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
