@@ -16,25 +16,49 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
       <![endif]-->
+
+	<style type="text/css" media="all">
+	  .simple {
+	  height: 200px;
+	  width: 500px;
+	  border: 5px solid #aaa;
+	  }
+	  .simple div {
+	  overflow: auto;
+	  }
+	  .vsplitbar {
+	  width: 5px;
+	  background: #cab;
+	  }
+	  </style>
   </head>
   <body>
+    <script src="lib/codemirror.js"></script>
+    <link rel="stylesheet" href="lib/codemirror.css">
+    <script src="mode/javascript/javascript.js"></script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/splitter.js"></script>
+
     <div class="container-fluid">
       <div class="row">
 	Hello, World!
       </div>
       <div class="row">
-	<div class="col-md-6">foobar</div>
 	<div class="col-md-6">
-	  <div id="editor-pane"></div>
+	  <div class="simple">
+	    <div>foobar</div>
+	    <div>
+	      <div id="editor-pane"></div>
+	    </div>
+	  </div>
 	</div>
       </div>
     </div>
-
-    <script src="lib/codemirror.js"></script>
-    <link rel="stylesheet" href="lib/codemirror.css">
-    <script src="mode/javascript/javascript.js"></script>
-
-
     <script>
       var myCodeMirror = CodeMirror(document.getElementById("editor-pane"), {
       value: "function myScript(){return 120;}\n",
@@ -42,9 +66,11 @@
       });
     </script>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+      $().ready(function() {
+      $(".simple").splitter();
+      });
+      </script>
+
   </body>
   </html>
