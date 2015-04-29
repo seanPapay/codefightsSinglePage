@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+    <title>Codefights Interview Page</title>
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -25,16 +25,19 @@
 	  }
 	  .simple div {
 	  overflow: auto;
+	  background-color: transparent;
 	  }
 	  .vsplitbar {
 	  width: 5px;
-	  background: #cab;
+	  background-color: orangered !important;
+	 /* background: #cab;*/
 	  }
 	  </style>
   </head>
   <body>
     <script src="lib/codemirror.js"></script>
     <link rel="stylesheet" href="lib/codemirror.css">
+    <link rel="stylesheet" href="lib/codefights.codemirror.css">
     <script src="mode/javascript/javascript.js"></script>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -55,15 +58,20 @@
 	<div class="col-md-6">
 	  <div class="simple">
 	    <div>foobar</div>
-	    <div>
+	    <div style="z-index:-1">
 	      <div id="editor-pane"></div>
 	    </div>
 	  </div>
 	</div>
       </div>
     </div>
+    <div id="editor2"></div>
     <script>
       var myCodeMirror = CodeMirror(document.getElementById("editor-pane"), {
+      value: "function myScript(){return 120;}\n",
+      mode:  "javascript"
+      });
+      var codeMirror2 = CodeMirror(document.getElementById("editor2"), {
       value: "function myScript(){return 120;}\n",
       mode:  "javascript"
       });
@@ -71,7 +79,13 @@
 
     <script type="text/javascript">
       $().ready(function() {
-      $(".simple").splitter();
+      $(".simple").splitter({
+      type: "v",
+      outline: true,
+      minLeft: 100, sizeLeft: 150, minRight: 100,
+//      resizeToWidth: true,
+      accessKey: 'I'
+      });
       });
       </script>
 
