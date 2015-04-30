@@ -23,17 +23,25 @@
 
 	<style type="text/css" media="all">
 	 .simple {
-	  height: 200px;
-	  border: 5px solid #aaa;
+	  height: 600px;
+	   border: 5px solid #aaa;
 	  }
 	  .CodeMirror {
 	  overflow: auto;
-	  background: transparent;
+	 background: transparent;
+	 padding-left: 10px;
+	 padding-right: 50px;
+	 padding-bottom: 40px;
 	  }
 	  .vsplitbar {
 	  width: 5px;
 	  background-color: orangered ;
 	 /* background: #cab;*/
+	 }
+	 .markdown {
+	 overflow: scroll;
+	 padding-right: 10px;
+	 padding-left: 10px;
 	 }
 	 
 	  </style>
@@ -59,10 +67,8 @@
       <div class="row">
 	<div class="col-md-12">
 	  <div class="simple">
-	    <div id="markdown"></div>
-	    <div style="z-index:-1">
-	      <div id="editor-pane"></div>
-	    </div>
+	    <div id="markdown" class="markdown"></div>
+	    <div id="editor-pane"></div>
 	  </div>
 	</div>
       </div>
@@ -78,8 +84,9 @@
       $().ready(function() {
       $(".simple").splitter({
       type: "v",
-      outline: true,
-      minLeft: 100, sizeLeft: 150, minRight: 100,
+      //outline: true,
+      //anchorToWindow: true,
+      minLeft: 100, sizeLeft: 250, minRight: 100,
 
       accessKey: 'I'
       });
@@ -110,7 +117,7 @@
       
         var timer = document.getElementById("timer");
         timer.innerHTML = formatTime(remaining);
-        window.requestAnimationFrame(step);
+	window.requestAnimationFrame(step);
       };
 
       step();
