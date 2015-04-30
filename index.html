@@ -50,6 +50,8 @@
 
     <script src="js/splitter.js"></script>
 
+    <script src="js/markdown.min.js"></script>
+
     <div class="container-fluid">
       <div class="row">
 	<center id="timer">Hello, World!</center>
@@ -57,7 +59,7 @@
       <div class="row">
 	<div class="col-md-12">
 	  <div class="simple">
-	    <div>foobar</div>
+	    <div id="markdown"></div>
 	    <div style="z-index:-1">
 	      <div id="editor-pane"></div>
 	    </div>
@@ -84,6 +86,15 @@
 
       var start = Date.now();
       var total = 180000;
+
+      //use this if your browser is allowing cross-origin requests without the proper headers
+      $.ajax('http://jaspervdj.be/lorem-markdownum/markdown.txt').done(function(md) {
+      //use this if you are running a real server and loading via http:// instead of file://
+      //$.ajax('lorem.md').done(function(md) {
+      var markdownDiv = $('#markdown');
+      markdownDiv.html(markdown.toHTML(md));
+
+      });
 
       var formatTime = function(time) {
         var minutes = Math.floor(time / 60000);
