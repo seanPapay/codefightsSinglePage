@@ -52,7 +52,7 @@
 
     <div class="container-fluid">
       <div class="row">
-	Hello, World!
+	<center id="timer">Hello, World!</center>
       </div>
       <div class="row">
 	<div class="col-md-12">
@@ -78,9 +78,31 @@
       type: "v",
       outline: true,
       minLeft: 100, sizeLeft: 150, minRight: 100,
-//      resizeToWidth: true,
+
       accessKey: 'I'
       });
+
+      var start = Date.now();
+      var total = 180000;
+
+      var formatTime = function(time) {
+        var minutes = Math.floor(time / 60000);
+        time %= 60000;
+        var seconds = Math.floor(time / 1000);
+        return minutes + ":" + seconds;
+      };
+      
+      var step = function() {
+        var elapsed = Date.now() - start;
+        var remaining = Math.max(0, total - elapsed);
+      
+        var timer = document.getElementById("timer");
+        timer.innerHTML = formatTime(remaining);
+        window.requestAnimationFrame(step);
+      };
+
+      step();
+      
       });
       </script>
 
