@@ -12,9 +12,9 @@ $().ready(function() {
     var total = 180000;
     
     //use this if your browser is allowing cross-origin requests without the proper headers
-    $.ajax('http://jaspervdj.be/lorem-markdownum/markdown.txt').done(function(md) {
-	//use this if you are running a real server and loading via http:// instead of file://
-	//$.ajax('lorem.md').done(function(md) {
+    //$.ajax('http://jaspervdj.be/lorem-markdownum/markdown.txt').done(function(md) {
+    //use this if you are running a real server and loading via http:// instead of file://
+    $.ajax('lorem.md').done(function(md) {
 	var markdownDiv = $('#markdown');
 	markdownDiv.html(markdown.toHTML(md));
 	
